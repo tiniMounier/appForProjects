@@ -27,7 +27,17 @@ Un agent IA (Claude) joue le personnage **en direct** : il parle, écoute ce que
 Le personnage reste toujours bienveillant : il impressionne un peu, mais ne menace jamais,
 et devient tout doux si un enfant a vraiment peur.
 
-## Lancer l'appli
+## Mettre l'appli en ligne (le plus simple)
+
+[![Déployer sur Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/tiniMounier/appForProjects)
+
+1. Créer un compte gratuit sur https://render.com (connexion avec GitHub).
+2. Cliquer sur le bouton ci-dessus, choisir la branche, coller la clé API Anthropic quand c'est demandé.
+3. Render donne une adresse en `https://…onrender.com` : l'ouvrir sur le téléphone, puis « Ajouter à l'écran d'accueil ».
+
+Sur l'offre gratuite, le serveur s'endort après 15 minutes sans visite : le premier appel peut prendre ~30 secondes.
+
+## Lancer l'appli sur son ordinateur
 
 Il faut Node.js 20 ou plus et une clé API Anthropic (https://console.anthropic.com).
 
