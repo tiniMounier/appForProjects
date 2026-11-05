@@ -1,0 +1,12 @@
+{
+  "name": "Allô Calme",
+  "short_name": "Allô Calme",
+  "description": "Appelle la police, le grand méchant loup ou le Père Noël pour calmer les enfants.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff7ed",
+  "theme_color": "#f97316",
+  "lang": "fr",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

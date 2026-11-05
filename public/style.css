@@ -1,0 +1,160 @@
+:root {
+  --bg: #fff7ed;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --chip: #ffffff;
+  --chip-border: #fed7aa;
+  --accent: #f97316;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1917;
+    --text: #f5f5f4;
+    --muted: #a8a29e;
+    --chip: #292524;
+    --chip-border: #57534e;
+  }
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  user-select: none;
+}
+button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
+
+/* ---------- Accueil ---------- */
+#home {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: max(16px, env(safe-area-inset-top)) 16px 32px;
+}
+header { display: flex; align-items: center; justify-content: space-between; }
+h1 { font-size: 1.7rem; margin: 8px 0; color: var(--accent); }
+.icon-btn { font-size: 1.6rem; padding: 8px; }
+.hint { font-size: 1.15rem; font-weight: 600; margin: 16px 0 12px; }
+.small { font-size: .9rem; color: var(--muted); font-weight: 500; }
+
+.bubbles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.bubble {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--c) 55%, white), var(--c));
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--c) 40%, transparent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: white;
+  transition: transform .15s;
+  animation: float 4s ease-in-out infinite;
+}
+.bubble:nth-child(2n) { animation-delay: -2s; }
+.bubble:active { transform: scale(.93); }
+.bubble .emoji { font-size: clamp(3rem, 16vw, 4.5rem); line-height: 1; }
+.bubble .label { font-weight: 700; font-size: .95rem; padding: 0 12px; text-align: center; text-shadow: 0 1px 2px rgb(0 0 0 / .35); }
+@keyframes float { 50% { translate: 0 -5px; } }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  background: var(--chip);
+  border: 2px solid var(--chip-border);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: .95rem;
+}
+.chip.on { background: var(--accent); border-color: var(--accent); color: white; }
+.warning { margin-top: 20px; font-size: .9rem; color: var(--muted); }
+
+/* ---------- Écran d'appel ---------- */
+.call {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: max(32px, env(safe-area-inset-top)) 16px max(32px, env(safe-area-inset-bottom));
+  color: white;
+  background: linear-gradient(180deg, var(--c), color-mix(in srgb, var(--c) 40%, black));
+}
+.call[hidden] { display: none; }
+.call-top { text-align: center; }
+.avatar {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 96px;
+  background: rgb(255 255 255 / .18);
+  box-shadow: 0 0 0 0 rgb(255 255 255 / .5);
+}
+body.talking .avatar { animation: pulse 1s ease-out infinite; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgb(255 255 255 / .55); }
+  100% { box-shadow: 0 0 0 28px rgb(255 255 255 / 0); }
+}
+.call h2 { margin: 16px 0 4px; font-size: 1.6rem; }
+.timer { margin: 0; opacity: .85; font-variant-numeric: tabular-nums; }
+.status { margin: 6px 0 0; opacity: .85; min-height: 1.2em; }
+
+.caption {
+  max-width: 520px;
+  min-height: 4.5em;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  margin: 0;
+}
+.caption[data-who="kid"] { font-style: italic; opacity: .8; }
+
+.call-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.pill {
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: rgb(255 255 255 / .2);
+  font-weight: 600;
+}
+.pill:active { background: rgb(255 255 255 / .35); }
+.hangup {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #ef4444;
+  font-size: 2rem;
+  rotate: 135deg;
+  box-shadow: 0 6px 16px rgb(0 0 0 / .3);
+}
+
+/* ---------- Réglages ---------- */
+dialog {
+  border: 0;
+  border-radius: 20px;
+  padding: 24px;
+  width: min(420px, calc(100% - 32px));
+  background: var(--bg);
+  color: var(--text);
+}
+dialog::backdrop { background: rgb(0 0 0 / .4); }
+dialog h3 { margin-top: 0; }
+dialog label { display: block; font-weight: 600; margin-bottom: 8px; }
+dialog input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 2px solid var(--chip-border);
+  background: var(--chip);
+  color: var(--text);
+}
+.pill.primary { background: var(--accent); color: white; width: 100%; margin-top: 8px; }

@@ -1,0 +1,11 @@
+# Déploiement en un clic sur Render (https://render.com).
+services:
+  - type: web
+    name: allo-calme
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false   # Render demandera la clé au moment du déploiement
