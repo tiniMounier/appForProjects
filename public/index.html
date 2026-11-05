@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f97316" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Allô Calme</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="home">
+    <header>
+      <h1>Allô Calme</h1>
+      <button id="settings-btn" class="icon-btn" aria-label="Réglages">⚙️</button>
+    </header>
+
+    <p class="hint">Qui veux-tu appeler&nbsp;?</p>
+    <div id="bubbles" class="bubbles"></div>
+
+    <p class="hint small">Le problème (facultatif)</p>
+    <div id="problems" class="chips"></div>
+
+    <p id="mic-warning" class="warning" hidden>
+      Ce navigateur ne permet pas au personnage d'entendre les enfants. Il parlera quand même&nbsp;!
+      Pour la conversation complète, utilise Chrome (Android) ou Safari (iPhone).
+    </p>
+  </main>
+
+  <section id="call" class="call" hidden>
+    <div class="call-top">
+      <div id="call-emoji" class="avatar"></div>
+      <h2 id="call-name"></h2>
+      <p id="call-timer" class="timer">00:00</p>
+      <p id="call-status" class="status"></p>
+    </div>
+
+    <p id="caption" class="caption"></p>
+
+    <div class="call-actions">
+      <button id="note-calm" class="pill">✅ Ils sont calmes</button>
+      <button id="note-again" class="pill">🔁 Ça recommence</button>
+      <button id="note-sound" class="pill">🔊 Bruitage</button>
+    </div>
+    <button id="hangup" class="hangup" aria-label="Raccrocher">📞</button>
+  </section>
+
+  <dialog id="settings">
+    <form id="settings-form" method="dialog">
+      <h3>Réglages</h3>
+      <label for="kids">Prénoms des enfants (facultatif)</label>
+      <input id="kids" type="text" placeholder="ex. Léo et Jade" autocomplete="off" />
+      <p class="small">Le personnage les appellera par leur prénom. C'est encore plus impressionnant&nbsp;!</p>
+      <button class="pill primary" value="ok">Enregistrer</button>
+    </form>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

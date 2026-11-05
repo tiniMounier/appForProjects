@@ -1,0 +1,27 @@
+{
+  "name": "allo-calme",
+  "version": "1.0.0",
+  "description": "Appli pour calmer les enfants : on appelle la police, le grand méchant loup, le Père Noël… et un agent IA répond en direct.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiniMounier/appForProjects.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiniMounier/appForProjects/issues"
+  },
+  "homepage": "https://github.com/tiniMounier/appForProjects#readme",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.5.0"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  }
+}
